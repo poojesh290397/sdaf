@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+
+*{
+font-family:arial;
+}
+
+.button_toggle{
+  text-align:center;
+}
+
+.button_toggle button{
+  font-size:25px;
+}
+
+.emi_eli{
+width:50%;
+height:340px;
+margin-top:20px;
+font-size:25px;
+margin-bottom:35px;
+}
+
+table{
+width:50%;
+margin:auto;
+margin-top: 10px;
+padding:15px;
+background-color: #e6ffff;
+border: 1px solid;
+ padding: 10px;
+ box-shadow: 5px 10px #b3d9ff;
+font-family:calibri;
+}
+
+table input{
+outline:0;}
+
+.div_left{
+float:left;
+}
+
+.div_right{
+float:right;
+}
+
+button{
+font-size:20px;
+background-color:#b3d9ff;}
+
+input{
+margin:auto;
+font-size:17px;
+padding:5px;
+}
+
+.error{
+border-color:red;
+border-style:solid;}
+
+.invisible{
+display:none;
+}
+
+#eli_cal_head, #emi_cal_head{
+margin-top:50px;
+text-align:center;
+font-size:40px;
+}
+
+#apply_now{
+font-size:30px;
+background-color:#b3d9ff;
+}
+
+</style>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="javascript.js"></script>
+<div>
+<h2 style="font-size:40px;"><center>Calculator</center></h2>
+</div>
+<div class="button_toggle">
+<button onclick="eli_cal()">Eligibility Calculator</button>
+<button onclick="emi_cal()">EMI Calculator</button>
+
+</div>
+	<div>
+		<div class="emi_eli div_left">
+			<h2 id="eli_cal_head" class="visible">Eligibility calculator</h2>
+			<table cellspacing=13 cellpadding=4 id="eli_cal_cont" class="invisible">
+				<form method="post" id="form_eli">
+					<tr>
+						<td>Monthly income</td>
+						<td><input type="number" name="monthlyIncome" min=10000 max=100000000 required/></td>
+					</tr>
+					<tr>
+						<td>ROI</td>
+						<td>8.5%</td>
+					</tr>
+					<tr>
+						<td>Tenure</td>
+						<td><input type="number" name="eliTenure" placeholder="In Years" min=4 max=40 required/></td>
+					</tr>
+					<tr>
+						<td>Calculate</td>
+						<td><input type="submit" id="eliCalculate" value="Calculate"></td>
+					</tr>
+					<tr>
+					<td>Eligibility</td>
+					<td><div id="eligibility"></div</td>
+					</tr>
+				</form>
+			</table>
+		</div>
+	<div class="emi_eli div_right">
+		<h2 id="emi_cal_head" class="visible">Emi calculator</h2>
+			<table cellspacing=13 cellpadding=4 id="emi_cal_cont" class="invisible">
+			   <form method="post" form="form_emi">
+				   <tr>
+				   		<td>Loan</td>
+				   		<td><input type="number" name="emiLoan" min=1000000 required></td>
+				   </tr>
+				   <tr>
+						<td>Tenure</td>
+						<td><input type="number" name="emiTenure" placeholder="In Years" min=1 max=40 required></td>
+				   </tr>
+				   <tr>
+				    	<td>Roi</td>
+				    	<td><div>8.5%</div></td>
+				    </tr>
+				    <tr>
+						<td>Calculate</td>
+						<td><input type="submit" id="emiCalculate" value="Calculate"></td>
+					</tr>
+				    <tr>
+				    <td>Emi</td>
+				    <td><div id="emiValue"></div></td>
+				    </tr>
+			  </form>
+			 </table>
+	</div>
+</div>
+<div>
+	<center>
+		<form>
+		<br><br>
+			<input type="submit" value="Apply Now" id="apply_now">
+		</form>
+	</center>
+</div>
+</body>
+</html>
